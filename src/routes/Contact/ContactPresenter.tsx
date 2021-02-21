@@ -11,8 +11,12 @@ interface IProps {
 
 const Container = styled.div`
     margin-top: 80px;
-    display: grid;
-    place-items:center;
+    padding: 0px 0.5rem;
+    font-size: 10px;
+    @media only screen and (min-width: 1160px){
+        display: flex;
+        justify-content: center;
+    }
 `;
 
 const TitleContainer = styled.div`
@@ -30,12 +34,22 @@ const Title = styled.span`
 `;
 
 const ImageDiv = styled.div`
-    width: 300px;
-    height: 200px;
+    width: 500px;
+    height: 300px;
     background-size: cover;
     background-position: center;
+    @media only screen and (min-width: 800px){
+        width: 600px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+    }
 `;
-
+const StoreInfoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
 const Phone = styled.span`
     color: black;
     font-size: 48px;
@@ -49,13 +63,14 @@ const AddressTitle = styled.p`
 const Address = styled.span`
     color: black;
     font-size: 36px;
+    padding: 1rem 2rem;
 `;
 
 const MessageContainer = styled.div`
     align-text:center;
     width: 100%;
     height: 50px;
-    margin-top: 50px;
+    margin: 1rem 0;
     display: grid;
     place-items: center;
 `;
@@ -81,9 +96,11 @@ const ContactPresenter = ({ loading, error }: IProps) => {
                             </TitleContainer>
                             <Container>
                                 <ImageDiv style={{ backgroundImage: `url(${img})` }} />
-                                <AddressTitle>店铺地址</AddressTitle>
-                                <Address>和布克赛尔蒙古自治县和布克赛尔镇 敖包特西街</Address>
-                                <Phone>手机号码：13579509848</Phone>
+                                <StoreInfoContainer>
+                                    <AddressTitle>店铺地址</AddressTitle>
+                                    <Address>和布克赛尔蒙古自治县和布克赛尔镇 敖包特西街</Address>
+                                    <Phone>手机号码：13579509848</Phone>
+                                </StoreInfoContainer>
                             </Container>
                             <MessageContainer>
                                 <Message>
